@@ -39,6 +39,8 @@ var mainState = {
     var spaceKey = game.input.keyboard.addKey(
                   Phaser.Keyboard.SPACEBAR);
     spaceKey.onDown.add(this.jump, this);
+    // Add touch event for mobile device (work wtih mouse as well)
+    game.input.onDown.add(this.jump, this)
 
     // Move the anchor to the left and downward
     // for a wide movement for changing angle
@@ -128,7 +130,7 @@ var mainState = {
     // Pick a number randomly in between 1 and 5
     // js random 메소드는 어떻게 사용되는지 궁금하다
     var hole = Math.floor(Math.random() * 5) + 1;
- 
+
     // Add the 6 pipes
     // 마지막에 +10 해주는건, 각 pipe sprites의 간격이다
     // 어떻게 화면 밖에 그려도 에러가 안뜨는걸까?
