@@ -10,6 +10,8 @@ var mainState = {
   create: function() {
     // change the background color to blue
     game.stage.backgroundColor = '#71c5cf';
+    // Horizontally center the canvas
+    game.scale.pageAlignHorizontally = true;
 
     // Set the built-in physics system
     game.physics.startSystem(Phaser.Physics.ARCADE);
