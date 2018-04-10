@@ -1,3 +1,4 @@
+var highScore = 0;
 var mainState = {
 
   preload: function() {
@@ -60,6 +61,11 @@ var mainState = {
     this.score = 0;
     this.labelScore = game.add.text(20, 20,
                       "0", { font: "30px Arial", fill: "#ffffff"});
+
+    // This is for a high score record
+    this.labelHighScore = game.add.text(20, 50,
+                      "HS: " + highScore, { font: "30px Arial", fill: "#0000FF"});
+
   },
 
   // Call 60 times every second
@@ -144,6 +150,12 @@ var mainState = {
     // Increase the score
     this.score += 1;
     this.labelScore.text = this.score;
+
+    // Save the highest score
+    if (this.score >= highScore) {
+      highScore = this.score;
+      this.labelHighScore.text = "HS: " + highScore;
+    }
 
   },
 
